@@ -39,3 +39,81 @@ Trabajar con CSV implica una estructura tabular. Para dar una mejor vista de sus
 Estos son los requerimientos principales del programa, pero en busqueda de una mejor interacción con el usuario sería apropiado que el programa sea intuitivao y permita ingresar opciones sin mucha complejidad, mostrando instrucciones claras y concisas. De igual forma, es necesario validar la entrada del usuario y manejar excepciones como archivos inexistentes, rutas incorrectas o tipos de datos no válidos.
 
 Así mismo, el programa presentará un archivo principal donde estará el código base y en diferentes documentos se proporcionarán las funciones que permitan la correcta operación de cada uno de los requerimientos. Lo anterior se hace en busqueda de facilitar la lectura y la posibilidad de mejoras en el futuro.
+
+# Pseudocódigo.
+
+El psudocódigo de este programa estará estrucutrado, donde se escribirá el código base y luego, por separado, cada una de las funciones del programa:
+
+### Código base
+
+```
+Inicio
+
+Definir opcion
+Definir ruta
+Definir archivos
+Definir txt
+Definir opcionst
+Definir palabra_mod
+Definir palabra_ree
+Definir csv
+Definir opcionsc
+
+Imprimir "Menú principal\n 1. Listar archivos en la ruta actual o ingresar una ruta donde buscar archivos\n 2. Procesar archivo de texto (.txt)\n 3. Procesar archivo separado por comas (.csv)\n 4. Salir"
+Leer opcion
+
+Si opcion ≠ 4:
+    
+    Si opcion = 1:
+        Imprimir "Por favor, ingresa la ruta deseada"
+        Leer ruta
+        archivos = listar archivos en ruta
+        Imprimir archivos
+
+    Si opcion = 2:
+        Imprimir "Por favor, ingrese el nombre del archivo .txt a procesar"
+        Leer txt
+        Imprimir "Menú\n 1. Contar número de palabras\n 2. Reemplazar una palabra por otra\n 3. Contar el número de caracteres\n 4. Volver al menú principal"
+        Leer opcionst
+         Si opcionst = 1:
+            Llamar a la función contar_numero_palabras
+
+        Si opcionst = 2:
+            Imprimir "Ingresa la palabra a ser modificada"
+            Leer palabra_mod
+            Imprimir "Ingresa la palabra de reemplazo"
+            Leer palabra_ree
+            Llamar a la función reemplazar_palabra
+    
+        Si opcionst = 3:
+            Llamar a la función contar_caracteres
+
+        Si opcionst = 4:
+            Regresar al menú principal
+
+    Si opcion = 3:
+        Imprimir "Por favor, ingresa el nombre del archivo .csv a procesar"
+        Leer csv
+        Imprimir "Menú\n 1. Mostrar las primeras 15 filas\n 2. Calcular estadísticas de una columna\n 3. Graficar una columna\n 4. Volver al menú principal"
+        Leer opcionsc
+
+        Si opcionsc = 1:
+            Llamar a la función primeras_filas
+
+        Si opcionsc = 2:
+            Imprimir "Ingresa el nombre de la columna para el análisis"
+            Llamar a la función estadisticas_columna
+
+        Si opcionsc = 3:
+            Imprimir "Ingresa el nombre de la columna a graficar"
+            Llamar a la función graficar_columna
+
+        Si opcionsc = 4:
+            Regresar al menú principal
+
+    Si opcion = 4:
+        Terminar el programa
+
+Imprimir "Gracias por usar este programa, ¡regresa pronto!"
+
+Fin
