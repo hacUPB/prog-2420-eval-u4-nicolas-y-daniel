@@ -218,3 +218,128 @@ Si el archivo no existe:
 
 Fin
 ```
+### Funcion primeras_filas
+
+```
+Inicio
+
+Definir archivo
+Definir contenido
+Definir contador = 0
+
+Intentar:
+    Abrir archivo
+    Leer contenido
+
+    Para fila en rango de contenido:
+        contador = contador + 1
+        Imprimir fila
+
+        Si contador = 15:
+            Salir del bucle
+    
+    Si contador = 0:
+        Imprimir "El archivo está vacío."
+    
+    Si contador <= 15:
+        Imprimir "El archivo tiene menos de 15 filas."
+
+Si archivo no existe:
+    Imprimir "Error: el archivo no fue existe. Por favor, revisa la ruta proporcionada"
+
+Capturar cualquier otra excepción:
+    Mostrar "Ocurrió un error: " seguido del mensaje de error
+
+Fin de la función
+```
+
+### Funcion estadisticas_columna
+
+```
+Inicio
+
+Definir archivo
+Definir contenido
+Definir posicion
+Definir nombre_columna
+Definir fila
+Definir val_i
+Definir valores = []
+Definir num_dat
+Definir prom
+Definir median
+Defini maxi
+Definir mini
+
+Intentar:
+    Abrir archivo
+    Leer contenido
+
+    posicion = indice de contenido en primera fila en nombre_columna
+
+    Si nombre_columna no está en contenido en primera fila:
+        Imprimir "La columna especificada no existe en el archivo."
+
+    Para fila en archivo:
+        val_i = fila en posicion
+        Convertir val_i a número
+        valores = valores + val_i
+
+    Si valores = []:
+        Imprimir "No se encontraron valores numéricos en la columna especificada."
+
+    num_dat = cantidad de datos en valores
+    prom = sumar datos de valores / num datos
+    median = organizar datos de valores y buscar el dato en el indice (num_dat/2)
+    maxi = dato máximo de valores
+    mini = dato mínimo de valores
+
+    Imprimir "La columna cuenta con" num_dat "en total; su promedio es" prom ", su mediana es" median ", su dato más alto es" maxi " y su dato más bajo es" mini
+
+Si archivo no existe:
+    Imprimir "Error: el archivo no fue existe. Por favor, revisa la ruta proporcionada."
+
+Fin
+```
+
+### Funcion graficar_columna
+
+```
+Inicio
+
+Importar matplotlib.pyplot como plt
+
+Definir archivo
+Definir contenido
+Definir posicion
+Definir nombre_columna
+Definir fila
+Definir val_i
+Definir valores = []
+
+Intentar:
+    Abrir archivo
+    Leer contenido
+
+    posicion = indice de contenido en primera fila en nombre_columna
+
+    Si nombre_columna no está en contenido en primera fila:
+    Imprimir "La columna especificada no existe en el archivo."
+
+    Para fila en archivo:
+        val_i = fila en posicion
+        Convertir val_i a número
+        valores = valores + val_i
+
+    Si valores = []:
+        Imprimir "No se encontraron valores numéricos en la columna especificada."
+
+    Crear una gráfica de tipo 'lineal' o 'barra' usando 'valores_columna'
+    
+    Imprimir la gráfica con plt.show()
+
+Si archivo no existe:
+    Imprimir "Error: el archivo no fue existe. Por favor, revisa la ruta proporcionada"
+
+Fin
+```
