@@ -7,7 +7,7 @@
 2. Daniel Alexander COlmenares Rolón; ID: 000542675
 ---
 
-# Gestor de archivos .txt y .csv
+## Gestor de archivos .txt y .csv
 
 Este proyecto tiene como objetivo principal desarrolar un programa que permita realizar distintas tareas con archivos de texto y separados por comas. Este programa llevara una secuencia de la siguiente forma:
 
@@ -36,11 +36,15 @@ Trabajar con CSV implica una estructura tabular. Para dar una mejor vista de sus
 2. Calcular estadísticas: Esta opción requiere identificar la columna y aplicar operaciones matemáticas que nos permitan conocer los datos solicitados.
 3. Graficar columna de datos: Esto puede ayudar al usuario a realizar análisis visuales de manera eficiente, obervando tendencias en un ítem específico de su documento.
 
+‎ 
+
 Estos son los requerimientos principales del programa, pero en busqueda de una mejor interacción con el usuario sería apropiado que el programa sea intuitivao y permita ingresar opciones sin mucha complejidad, mostrando instrucciones claras y concisas. De igual forma, es necesario validar la entrada del usuario y manejar excepciones como archivos inexistentes, rutas incorrectas o tipos de datos no válidos.
 
 Así mismo, el programa presentará un archivo principal donde estará el código base y en diferentes documentos se proporcionarán las funciones que permitan la correcta operación de cada uno de los requerimientos. Lo anterior se hace en busqueda de facilitar la lectura y la posibilidad de mejoras en el futuro.
 
-# Pseudocódigo.
+---
+
+## Psudocódigo
 
 El psudocódigo de este programa estará estrucutrado, donde se escribirá el código base y luego, por separado, cada una de las funciones del programa:
 
@@ -75,7 +79,8 @@ Si opcion ≠ 4:
         Leer txt
         Imprimir "Menú\n 1. Contar número de palabras\n 2. Reemplazar una palabra por otra\n 3. Contar el número de caracteres\n 4. Volver al menú principal"
         Leer opcionst
-         Si opcionst = 1:
+
+        Si opcionst = 1:
             Llamar a la función contar_numero_palabras
 
         Si opcionst = 2:
@@ -117,3 +122,99 @@ Si opcion ≠ 4:
 Imprimir "Gracias por usar este programa, ¡regresa pronto!"
 
 Fin
+```
+### Función contar_numero_palabras
+
+```
+Inicio
+
+Definir archivo
+Definir contenido
+Definir palabra
+Definir contador = 0
+
+    Intentar:
+        Abrir archivo
+        Leer contenido
+        Para palabra en rango del contenido
+            contador = contador + 1
+
+        Imprimir "El archivo tiene" contador "palabras"
+
+    Si archivo no existe:
+        Mostrar "Error: el archivo no fue existe. Por favor, revisa la ruta proporcionada"
+
+Fin
+```
+### Función reemplazar_palabra
+
+```
+Inicio
+
+Definir archivo
+Definir contenido
+Definir posicion
+Definir palabra_a_buscar
+Definir parte_1
+Definir parte_2
+Definir nuev_contenido
+Definir nueva_palabra
+
+Intentar:
+    Abrir archivo
+    Leer contenido
+
+    posicion =  posición de la primera ocurrencia de palabra_a_buscar en contenido
+
+    Si posicion = -1:
+        Imprimir "La palabra no se encontró en el archivo."
+
+    Si no:
+        parte_1 = contenido hasta primera ocurrencia de palabra_a_buscar
+        parte_2 = contenido desde primera ocurrencia de palabra_a_buscar
+
+        nuev_contenido = parte_1 + nueva_palabra + parte_2
+
+        archivo = nuev_contenido
+
+        Imprimir "Reemplazo realizado exitosamente."
+        Imprimir "El nuevo texto el:\n" nuev_contenido
+
+Si el archivo no existe:
+    Imprimir "Error: el archivo no fue existe. Por favor, revisa la ruta proporcionada"
+
+Fin
+```
+### Función contar_caracteres
+
+```
+Inicio
+
+Definir archivo
+Definir contenido
+Definir caracter
+Definir contc = 0
+Definir conte = 0
+
+Intentar:
+    Abrir archivo
+    Leer contenido
+
+    Para caracter en rango de contenido:
+        contc = contc + 1
+
+    Para caracter en rango de contenido:
+        Si caracter ≠ " ":
+            conte = conte + 1
+        Si no:
+            conte = conte  
+        
+
+    Imprimir "Incluyendo espacios en blanco, hay" contc "carácteres en total"
+    Imprimir "Excluyendo espacios en blanco, hay" conte "carácteres en total"
+
+Si el archivo no existe:
+    Imprimir "Error: el archivo no fue existe. Por favor, revisa la ruta proporcionada"
+
+Fin
+```
