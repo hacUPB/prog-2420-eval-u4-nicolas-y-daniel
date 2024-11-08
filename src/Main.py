@@ -1,12 +1,14 @@
+from os import system
+import matplotlib.pyplot as plt
+from Listar_archivos import listar_archivos
+from Funciones_txt import contar_numero_palabras
+from Funciones_txt import reemplazar_palabra
+from Funciones_txt import contar_caracteres
+from Funciones_csv import primeras_filas
+from Funciones_csv import estadisticas_columna
+from Funciones_csv import graficar_columna
 
 def main():
-
-    from os import system
-    import matplotlib.pyplot as plt
-    from Listar_archivos import listar_archivos
-    from Funciones_txt import contar_numero_palabras
-    from Funciones_txt import reemplazar_palabra
-    from Funciones_txt import contar_caracteres
 
     while True:
 
@@ -19,7 +21,7 @@ def main():
             # Llamar a la función para listar archivos en la ruta actual o en una ruta especificada
             
             print("¡Excelente! Vamos a listar un archivo...")
-            _ = listar_archivos()
+            listar_archivos()
         
         elif opcion == "2":
 
@@ -43,8 +45,12 @@ def main():
                     txt = input("Ingrese la ruta del archivo de texto: ")
                     palabra_a_buscar = input("Ingrese la palabra que desea modificar: ")
                     nueva_palabra = input("Ingrese la palabra por la cual se reemplazará: ")
-                    numero_ocurrencia = int(input("Ingrese el número de ocurrencia de la palabra que desea modificar: "))
-                    reemplazar_palabra(txt, palabra_a_buscar, nueva_palabra, numero_ocurrencia)
+                    try:
+                        numero_ocurrencia = int(input("Ingrese el número de ocurrencia de la palabra que desea modificar: "))
+                        reemplazar_palabra(txt, palabra_a_buscar, nueva_palabra, numero_ocurrencia)
+                    except ValueError:
+                        print("Por favor, ingrese un número válido.")
+                        continue
 
                 elif opcion_txt == "3":
 
@@ -95,13 +101,11 @@ def main():
                     print("Opción no válida, intente de nuevo.")
 
         elif opcion == "4":
-            print("Saliendo del programa...")
+            print("Gracias por usar este programa, ¡regresa pronto!")
             break  # Salir del programa
 
         else:
             print("Opción no válida, intente de nuevo.")
-
-        print("Gracias por usar este programa, ¡regresa pronto!")
 
 if __name__ == "__main__":
     main()
