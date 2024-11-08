@@ -4,6 +4,8 @@ def listar_archivos():
     # Pedir al usuario la ruta del directorio
     ruta = input("Ingrese la ruta del directorio (deje vacío para la ruta actual): ")
     
+    ruta = ruta.strip('"')
+
     # Si el usuario deja la ruta vacía, se usa la ruta actual
     if ruta.strip() == "":
         ruta = os.getcwd()  # Obtener la ruta actual

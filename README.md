@@ -42,6 +42,8 @@ Estos son los requerimientos principales del programa, pero en busqueda de una m
 
 Así mismo, el programa presentará un archivo principal donde estará el código base y en diferentes documentos se proporcionarán las funciones que permitan la correcta operación de cada uno de los requerimientos. Lo anterior se hace en busqueda de facilitar la lectura y la posibilidad de mejoras en el futuro.
 
+Cabe resaltar que para el correcto desarrollo de las funciones solicitas por el programa, se hace necesario el uso de modulos, funciones y metodos que no se lograron conocer en clase; así como el uso de las excepciones para lograr dar continuidad al programa.
+
 ---
 
 ## Psudocódigo
